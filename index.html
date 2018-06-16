@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Визуализация статистических данных</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+    <script src="https://www.google.com/jsapi"></script>
+    <!-- Внешние стили -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style id="jsbin-css">
+        .container1 {
+            width: 300px;
+            height: 300px;
+            overflow: hidden;
+            border-radius: 50%;
+            position: relative;
+        }
+
+        .container2 {
+            width: 300px;
+            height: 300px;
+            overflow: hidden;
+            border-radius: 50%;
+            position: relative;
+        }
+
+        .sector {
+            width: 50%;
+            height: 50%;
+            position: absolute;
+            left: 50%;
+            top: 0;
+            transform-origin: left bottom;
+        }
+    </style>
+</head>
+
+<body class="bg-light">
+    <script src="https://code.jquery.com/jquery-3.0.0.js"></script>
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+        <div>
+            <h1 class="jumbotron bg-secondary text-white text-center">Магия расходов</h1>
+        </div>
+        <div class="row">
+            <label class="col-md-2 text-center">Фильтр по статьям:</label>
+            <select class="col-md-1 btn btn-lg btn-block btn-secondary" id="filterByArticles">
+                <option>---</option>
+            </select>
+            <label class="col-md-2 text-center">Фильтр по блокам:</label>
+            <select class="col-md-1 btn btn-lg btn-block btn-secondary" id="filterByBlocks">
+                <option>---</option>
+            </select>
+            <label class="col-md-2 text-center">Фильтр по территориям:</label>
+            <select class="col-md-1 btn btn-lg btn-block btn-secondary" id="filterByTerritories">
+                <option>---</option>
+            </select>
+            <div class="col-md-1"></div>
+            <button class="col-md-1 btn btn-lg btn-block btn-secondary" OnClick="filtred();">
+                <label>
+                    <i class="fa fa-filter" aria-hidden="true"></i> Фильтр</label>
+            </button>
+            <div class="col-md-1"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <h2>Структура расходов по статьям</h2>
+                <div class="col-md-6">
+                    <ul type="square" class="expensesByArticles"></ul>
+                </div>
+                <div class="col-md-6">
+                    <div class="container1"></div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h2>Распределение расходов по бизнес-блокам</h2>
+                <div class="col-md-6">
+                    <ul type="square" class="expensesBlocks"></ul>
+                </div>
+                <div class="col-md-6">
+                    <div class="container2"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <h2>Структура расходов по территориям</h2>
+                <table border="1" class="expensesByTerritories table">
+                    <thead>
+                        <tr>
+                            <th class="text-center">Территориальный банк</th>
+                            <th class="text-center">Факт (в млн.)</th>
+                            <th class="text-center">План (в млн.)</th>
+                            <th class="text-center">Выполнение</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+            <div class="col-md-6">
+                <h2>Динамика расходов по месяцам</h2>
+                <table border="1" class="expensesByMonths table">
+                    <thead>
+                        <tr>
+                            <th class="text-center">Месяц</th>
+                            <th class="text-center">Выполнение (в млн.)</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-1"></div>
+    <script src="gui.js"></script>
+</body>
+
+</html>
